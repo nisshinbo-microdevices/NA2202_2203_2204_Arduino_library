@@ -1,0 +1,30 @@
+# Class
+NA2202_2203_2204Class KEYWORD1
+NA2202Class           KEYWORD1
+NA2203Class           KEYWORD1
+NA2204Class           KEYWORD1
+
+# Functions
+begin                 KEYWORD2
+end                   KEYWORD2
+reset                 KEYWORD2
+clearSTBY             KEYWORD2
+setSTBY               KEYWORD2
+read                  KEYWORD2
+write                 KEYWORD2
+readADCDATA           KEYWORD2
+readRDYB              KEYWORD2
+
+# Constants
+CTRL                  KEYWORD2
+ADCDATA               KEYWORD2
+IEXCONF               KEYWORD2
+AFECONF               KEYWORD2
+CLKCONF               KEYWORD2
+GPIOCTRL0             KEYWORD2
+GPIOCTRL1             KEYWORD2
+OPTION                KEYWORD2
+GAIN1                 KEYWORD2
+GAIN2                 KEYWORD2
+OFFSET1               KEYWORD2
+OFFSET2               KEYWORD2
