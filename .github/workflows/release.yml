@@ -14,12 +14,11 @@ jobs:
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Create Release
         id: create_release
         run: |
+          gh repo clone "${{ github.repository }}" repo
+          cd repo
           RELEASE_TAG="${{ github.ref_name }}"
           RELEASE_NAME="Release $RELEASE_TAG"
           gh release create "$RELEASE_TAG" --title "$RELEASE_NAME" --notes ""
@@ -35,17 +34,13 @@ jobs:
     env:
       libname: NA2202_2203_2204
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Archive
+      - name: Upload Release Asset
         run: |
+          gh repo clone "${{ github.repository }}" repo
+          cd repo
           mkdir -p ${{ env.libname }}
           mv src/ examples/ library.properties keywords.txt LICENSE ${{ env.libname }}
           zip -r ${{ env.libname }}_${{ github.ref_name }}.zip ${{ env.libname }}
-
-      - name: Upload Release Asset
-        run: |
           gh release upload "${{ github.ref_name }}" "${{ env.libname }}_${{ github.ref_name }}.zip"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
